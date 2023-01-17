@@ -1,4 +1,4 @@
-function Books(title, author, pages, read) {
+function books(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
