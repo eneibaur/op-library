@@ -29,13 +29,14 @@ body {
 }
 
 .body {
+    margin: 10% 25%;
     display: grid;
     gap: 25px;
     grid-template: repeat(auto-fit, minmax(300px, .25fr)) / auto auto auto;
 }
 
 .card {
-    
+
 }
 
 .footer {
