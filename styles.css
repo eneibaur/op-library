@@ -28,6 +28,16 @@ body {
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.062);
 }
 
+.body {
+    display: grid;
+    gap: 25px;
+    grid-template: repeat(auto-fit, minmax(300px, .25fr)) / auto auto auto;
+}
+
+.card {
+    
+}
+
 .footer {
     margin-top: auto;
 }
