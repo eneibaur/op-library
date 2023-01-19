@@ -47,7 +47,7 @@ body {
     box-shadow: -5px 10px 10px var(--shadow-color);
     justify-content: center;
     align-items: center;
-
+    text-align: center;
 }
 
 .add {
