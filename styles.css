@@ -2,6 +2,7 @@
 
 :root {
     --main-color: rgb(222, 246, 252);
+    --highlight-color: rgb(205, 161, 235);
 }
 
 body {
@@ -29,14 +30,19 @@ body {
 }
 
 .body {
-    margin: 10% 25%;
+    margin: 10% 15%;
     display: grid;
     gap: 25px;
-    grid-template: repeat(auto-fit, minmax(300px, .25fr)) / auto auto auto;
+    grid-template: repeat(auto-fit, 350px) / repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .card {
-
+    border: 3px solid var(--main-color);
+    border-radius: 1rem;
+    border-left: 1rem solid var(--highlight-color);
+    padding: 10px;
+    min-height: 300px;
+    min-width: 300px;
 }
 
 .footer {
