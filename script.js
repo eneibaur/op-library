@@ -1,18 +1,22 @@
 const myLibrary = [];
 
-function book(title, author, pages, read) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  function info() {
-    const string = 'this.title + " by " this.author + "," + this.pages + " pages, " + this.read';
-    return string;
-  }
 }
 
-function addBookToLibrary() {
-}
+Book.prototype.bookInfo = function () {
+  const string = `${this.title} by ${this.author}, ${this.pages} pages`;
+  return string;
+};
+
+myLibrary.push(new Book('Lord of the Reigns', 'K.T.T. Rojuwn', 234, false));
+
+console.log(myLibrary[0].bookInfo());
+// function addBookToLibrary() {
+// }
 
 // Next steps
 // User pushes button on "new book element"
@@ -21,4 +25,3 @@ function addBookToLibrary() {
 // function loops over the array, creating a new div that fills out the appropriate fields
 // with values from the each object in the array
 // on cards - include button that runs a function that deletes that object from the array
-
