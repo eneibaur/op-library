@@ -47,6 +47,43 @@ body {
     box-shadow: -5px 10px 10px var(--shadow-color);
 }
 
+.book {
+    display: grid;
+    grid-template-rows: 1fr 3fr 3fr 3fr 1fr;
+    grid-template-columns: 1fr 3fr 3fr 1fr;
+}
+
+.remove {
+    grid-column: 4/5;
+    grid-row: 1/2;
+}
+
+.title {
+    grid-column: 2/4;
+    grid-row: 2/3;
+    align-items: center;
+    text-align: center;
+}
+
+.author {
+    grid-column: 2/4;
+    grid-row: 3/4;
+    align-items: center;
+    text-align: center;
+}
+
+.pages {
+    grid-column: 2/4;
+    grid-row: 4/5;
+    align-items: center;
+    text-align: center;
+}
+
+.read-toggle {
+    grid-column: 2/4;
+    grid-row: 5/6;
+}
+
 .add {
     display: grid;
     gap: 10px;
