@@ -13,3 +13,12 @@ function book(title, author, pages, read) {
 
 function addBookToLibrary() {
 }
+
+// Next steps
+// User pushes button on "new book element"
+// a form pops up with fields for author, book title, pages, and a read toggle
+// save information from that form into an object, which gets stored into the library array
+// function loops over the array, creating a new div that fills out the appropriate fields
+// with values from the each object in the array
+// on cards - include button that runs a function that deletes that object from the array
+
