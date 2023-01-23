@@ -17,6 +17,15 @@ body {
     font-family: 'Merriweather', serif;;
 }
 
+.form {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--shadow-color);
+    padding-left: auto;
+    padding-right: auto;
+}
+
 .header > h1 {
     font-size: 4rem;
     margin-bottom: -.5rem;

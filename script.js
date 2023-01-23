@@ -1,8 +1,13 @@
 const container = document.querySelector('.body');
 const readButtons = document.querySelectorAll('.read-toggle');
 const removeButtons = document.querySelectorAll('.remove');
+const addButton = document.querySelector('.add-book');
 
 const myLibrary = [];
+
+// addButton.addEventListener('click', () => {
+
+// });
 
 function Book(newTitle, newAuthor, newPages, read) {
   this.title = newTitle;
