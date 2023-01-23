@@ -1,16 +1,22 @@
 const container = document.querySelector('.body');
 const readButtons = document.querySelectorAll('.read-toggle');
+const readToggle = document.createElement('button');
 const card = document.createElement('div');
 const del = document.createElement('div');
+const removeButton = document.createElement('button');
 const title = document.createElement('p');
 const author = document.createElement('p');
 const pages = document.createElement('p');
 
 card.classList.add('card', 'book');
 del.classList.add('remove-row');
+removeButton.classList.add('remove');
+removeButton.innerText = 'X';
 title.classList.add('info', 'title');
 author.classList.add('info', 'author');
 pages.classList.add('info', 'pages');
+readToggle.classList.add('readToggle');
+
 const myLibrary = [];
 
 function Book(newTitle, newAuthor, newPages, read) {
@@ -36,9 +42,11 @@ function makeBookDisplay() {
   for (let i = 0; i <= myLibrary.length; i++) {
     container.appendChild(card);
     card.appendChild(del);
+    del.appendChild(removeButton);
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
+    card.appendChild(readToggle);
     // myLibrary[i] and write them to dom model
   }
 }
