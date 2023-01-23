@@ -18,12 +18,35 @@ body {
 }
 
 .form {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    background-color: var(--main-color);
+    padding: 30px;
+    width: fit-content;
+}
+
+form {
+    display: grid;
+    grid-template-rows: repeat(1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.enabled {
     position: absolute;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: var(--shadow-color);
     padding-left: auto;
     padding-right: auto;
+}
+
+.diabled {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0%;
 }
 
 .header > h1 {
