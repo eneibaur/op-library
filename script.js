@@ -2,21 +2,30 @@ const container = document.querySelector('.body');
 const readButtons = document.querySelectorAll('.read-toggle');
 const removeButtons = document.querySelectorAll('.remove');
 const readToggle = document.createElement('button');
-const card = document.createElement('div');
 const del = document.createElement('div');
 const removeButton = document.createElement('button');
 const title = document.createElement('p');
 const author = document.createElement('p');
 const pages = document.createElement('p');
 
-card.classList.add('card', 'book');
+// Card item with children
+// const card = document.createElement('div');
+// card.classList.add('card', 'book');
+// card.appendChild(del);
+// del.appendChild(removeButton);
+// card.appendChild(title);
+// card.appendChild(author);
+// card.appendChild(pages);
+// card.appendChild(readToggle);
+
+// CSS styling for card
 del.classList.add('remove-row');
 removeButton.classList.add('remove');
 removeButton.innerText = 'X';
 title.classList.add('info', 'title');
 author.classList.add('info', 'author');
 pages.classList.add('info', 'pages');
-readToggle.classList.add('read-toggle');
+readToggle.classList.add('read-toggle', 'on');
 
 const myLibrary = [];
 
@@ -35,23 +44,25 @@ Book.prototype.bookInfo = function () {
 // push a few fake books to library for display tests
 myLibrary.push(new Book('Lord of the Reigns', 'K.T.T. Rojuwn', 234, false));
 myLibrary.push(new Book('Theater of a Thespian', 'E.W. Neibaur', 156, false));
+myLibrary.push(new Book('Artifices of an Architect', 'E.W.T. Neibaur', 250, true));
 
 // function addBookToLibrary() {
 // }
 
 function makeBookDisplay() {
-  for (let i = 0; i <= myLibrary.length; i++) {
+  for (let i = 0; i < myLibrary.length; i++) {
+    const card = document.createElement('div');
     container.appendChild(card);
+    card.classList.add('card', 'book');
     card.appendChild(del);
     del.appendChild(removeButton);
     card.appendChild(title);
-    title.innerText = 'hi!';
     card.appendChild(author);
-    author.innerText = 'hi!';
     card.appendChild(pages);
-    pages.innerText = 'hi!';
     card.appendChild(readToggle);
-    readToggle.classList.add('on');
+    title.innerText = 'hi!';
+    author.innerText = 'hi!';
+    pages.innerText = '250';
     readToggle.innerText = 'READ';
     // myLibrary[i] and write them to dom model
   }
