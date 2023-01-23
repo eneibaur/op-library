@@ -1,31 +1,6 @@
 const container = document.querySelector('.body');
 const readButtons = document.querySelectorAll('.read-toggle');
 const removeButtons = document.querySelectorAll('.remove');
-const readToggle = document.createElement('button');
-const del = document.createElement('div');
-const removeButton = document.createElement('button');
-const title = document.createElement('p');
-const author = document.createElement('p');
-const pages = document.createElement('p');
-
-// Card item with children
-// const card = document.createElement('div');
-// card.classList.add('card', 'book');
-// card.appendChild(del);
-// del.appendChild(removeButton);
-// card.appendChild(title);
-// card.appendChild(author);
-// card.appendChild(pages);
-// card.appendChild(readToggle);
-
-// CSS styling for card
-del.classList.add('remove-row');
-removeButton.classList.add('remove');
-removeButton.innerText = 'X';
-title.classList.add('info', 'title');
-author.classList.add('info', 'author');
-pages.classList.add('info', 'pages');
-readToggle.classList.add('read-toggle', 'on');
 
 const myLibrary = [];
 
@@ -52,6 +27,12 @@ myLibrary.push(new Book('Artifices of an Architect', 'E.W.T. Neibaur', 250, true
 function makeBookDisplay() {
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement('div');
+    const del = document.createElement('div');
+    const removeButton = document.createElement('button');
+    const title = document.createElement('p');
+    const author = document.createElement('p');
+    const pages = document.createElement('p');
+    const readToggle = document.createElement('button');
     container.appendChild(card);
     card.classList.add('card', 'book');
     card.appendChild(del);
@@ -60,11 +41,23 @@ function makeBookDisplay() {
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(readToggle);
-    title.innerText = 'hi!';
-    author.innerText = 'hi!';
-    pages.innerText = '250';
-    readToggle.innerText = 'READ';
-    // myLibrary[i] and write them to dom model
+    del.classList.add('remove-row');
+    removeButton.classList.add('remove');
+    removeButton.innerText = 'X';
+    title.classList.add('info', 'title');
+    author.classList.add('info', 'author');
+    pages.classList.add('info', 'pages');
+    readToggle.classList.add('read-toggle');
+    title.innerText = myLibrary[i].title;
+    author.innerText = myLibrary[i].author;
+    pages.innerText = myLibrary[i].pages;
+    if (myLibrary[i].read) {
+      readToggle.innerText = 'READ';
+      readToggle.classList.add('on');
+    } else {
+      readToggle.innerText = 'UNREAD';
+      readToggle.classList.add('off');
+    }
   }
 }
 
