@@ -1,12 +1,22 @@
 const container = document.querySelector('.body');
+const readButtons = document.querySelectorAll('.read-toggle');
 const card = document.createElement('div');
+const del = document.createElement('div');
+const title = document.createElement('p');
+const author = document.createElement('p');
+const pages = document.createElement('p');
+
 card.classList.add('card', 'book');
+del.classList.add('remove-row');
+title.classList.add('info', 'title');
+author.classList.add('info', 'author');
+pages.classList.add('info', 'pages');
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
+function Book(newTitle, newAuthor, newPages, read) {
+  this.title = newTitle;
+  this.author = newAuthor;
+  this.pages = newPages;
   this.read = read;
 }
 
@@ -25,6 +35,10 @@ myLibrary.push(new Book('Theater of a Thespian', 'E.W. Neibaur', 156, false));
 function makeBookDisplay() {
   for (let i = 0; i <= myLibrary.length; i++) {
     container.appendChild(card);
+    card.appendChild(del);
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(pages);
     // myLibrary[i] and write them to dom model
   }
 }
