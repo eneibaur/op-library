@@ -1,3 +1,6 @@
+const container = document.querySelector('.body');
+const card = document.createElement('div');
+card.classList.add('card', 'book');
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -21,6 +24,7 @@ myLibrary.push(new Book('Theater of a Thespian', 'E.W. Neibaur', 156, false));
 
 function makeBookDisplay() {
   for (let i = 0; i <= myLibrary.length; i++) {
+    container.appendChild(card);
     // myLibrary[i] and write them to dom model
   }
 }
