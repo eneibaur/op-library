@@ -12,11 +12,20 @@ Book.prototype.bookInfo = function () {
   return string;
 };
 
+// push a few fake books to library for display tests
 myLibrary.push(new Book('Lord of the Reigns', 'K.T.T. Rojuwn', 234, false));
+myLibrary.push(new Book('Theater of a Thespian', 'E.W. Neibaur', 156, false));
 
-console.log(myLibrary[0].bookInfo());
 // function addBookToLibrary() {
 // }
+
+function makeBookDisplay() {
+  for (let i = 0; i <= myLibrary.length; i++) {
+    // myLibrary[i] and write them to dom model
+  }
+}
+
+makeBookDisplay();
 
 // Next steps
 // User pushes button on "new book element"
