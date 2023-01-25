@@ -33,13 +33,19 @@ form {
     justify-items: center;
 }
 
+.form {
+    position: relative;
+    margin: auto;
+    width: 300px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
 .enabled {
     position: fixed;
     width: 100vw;
     height: 100%;
     background-color: var(--shadow-color);
-    padding-left: auto;
-    padding-right: auto;
 }
 
 .diabled {
