@@ -64,7 +64,7 @@ function makeBookDisplay() {
     author.classList.add('info', 'author');
     pages.classList.add('info', 'pages');
     readToggle.classList.add('read-toggle');
-    title.innerText = myLibrary.title;
+    title.innerText = myLibrary[i].title;
     author.innerText = myLibrary[i].author;
     pages.innerText = myLibrary[i].pages;
     if (myLibrary[i].read) {
@@ -89,6 +89,5 @@ function hideForm() {
   form.classList.add('hidden');
 }
 
-// get information from form
-// run information through book function
-// update book display
+// Fix read/unread toggle on cards
+// make way to tag cards for delete button
