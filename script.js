@@ -2,11 +2,13 @@ const container = document.querySelector('.body');
 const readButtons = document.querySelectorAll('.read-toggle');
 const removeButtons = document.querySelectorAll('.remove');
 const addButton = document.querySelector('.add-book');
-
+const formBackground = document.querySelector('.form-background');
+const divForm = document.querySelector('.form');
+const form = document.querySelector('#form');
 const myLibrary = [];
 
 // addButton.addEventListener('click', () => {
-
+//   displayForm();
 // });
 
 function Book(newTitle, newAuthor, newPages, read) {
@@ -66,6 +68,11 @@ function makeBookDisplay() {
   }
 }
 
+function displayForm() {
+  formBackground.classList.replace('disabled', 'enabled');
+  divForm.classList.remove('hidden');
+  form.classList.remove('hidden');
+}
 makeBookDisplay();
 
 // Next steps
