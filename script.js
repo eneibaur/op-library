@@ -17,6 +17,7 @@ form.addEventListener('submit', (e) => {
   const formData = new FormData(e.target);
   const bookObject = Object.fromEntries(formData);
   myLibrary.push(bookObject);
+  console.log(myLibrary);
   makeBookDisplay();
 });
 
@@ -31,13 +32,16 @@ function Book(newTitle, newAuthor, newPages, read) {
   this.read = read;
 }
 
+myLibrary.push(new Book('nothing', 'nothing', 222, true));
+console.log(myLibrary);
+
 Book.prototype.bookInfo = function () {
   const string = `${this.title} by ${this.author}, ${this.pages} pages`;
   return string;
 };
 
 function makeBookDisplay() {
-  for (let i = 0; i < myLibrary.length; i++) {
+  for (let i = myLibrary.length - 1; i <= (myLibrary.length - 1); i++) {
     const card = document.createElement('div');
     const del = document.createElement('div');
     const removeButton = document.createElement('button');
@@ -60,7 +64,7 @@ function makeBookDisplay() {
     author.classList.add('info', 'author');
     pages.classList.add('info', 'pages');
     readToggle.classList.add('read-toggle');
-    title.innerText = myLibrary[i].title;
+    title.innerText = myLibrary.title;
     author.innerText = myLibrary[i].author;
     pages.innerText = myLibrary[i].pages;
     if (myLibrary[i].read) {
@@ -84,8 +88,6 @@ function hideForm() {
   divForm.classList.add('hidden');
   form.classList.add('hidden');
 }
-
-makeBookDisplay();
 
 // get information from form
 // run information through book function
