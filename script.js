@@ -5,10 +5,15 @@ const addButton = document.querySelector('.add-book');
 const formBackground = document.querySelector('.form-background');
 const divForm = document.querySelector('.form');
 const form = document.querySelector('#form');
+const submit = document.querySelector('.submit');
 const myLibrary = [];
 
 addButton.addEventListener('click', () => {
   displayForm();
+});
+
+submit.addEventListener('click', () => {
+  hideForm();
 });
 
 function Book(newTitle, newAuthor, newPages, read) {
@@ -73,6 +78,13 @@ function displayForm() {
   divForm.classList.remove('hidden');
   form.classList.remove('hidden');
 }
+
+function hideForm() {
+  formBackground.classList.replace('enabled', 'disabled');
+  divForm.classList.add('hidden');
+  form.classList.add('hidden');
+}
+
 makeBookDisplay();
 
 // Next steps
