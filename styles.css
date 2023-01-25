@@ -142,14 +142,25 @@ form {
     background-color: var(--main-color);
     height: 150px;
     width: 150px;
-    border: 1px solid var(--main-color);
+    border: 3px solid var(--main-color);
     border-radius: 1rem;
     transition: 10ms;
 }
 
-.add > button:hover, .remove:hover {
+.add > button:hover, .remove:hover, .submit:hover {
     background-color: var(--highlight-color);
-    border: 1px solid var(--highlight-color);
+    border: 3px solid var(--highlight-color);
+    transition: 10ms;
+}
+
+.submit {
+    background-color: var(--read-color);
+    border-radius: 1rem;
+    border: 3px solid var(--highlight-color);
+    padding: 10px;
+    margin-top: 10px;
+    font-size: xx-large;
+    transition: 10ms;
 }
 
 .remove {
