@@ -34,7 +34,7 @@ form {
 }
 
 .enabled {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100%;
     background-color: var(--shadow-color);
@@ -43,10 +43,12 @@ form {
 }
 
 .diabled {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
     opacity: 0%;
+}
+
+.hidden {
+    position: absolute;
+    visibility: hidden;
 }
 
 .header > h1 {
