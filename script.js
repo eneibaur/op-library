@@ -7,9 +7,9 @@ const divForm = document.querySelector('.form');
 const form = document.querySelector('#form');
 const myLibrary = [];
 
-// addButton.addEventListener('click', () => {
-//   displayForm();
-// });
+addButton.addEventListener('click', () => {
+  displayForm();
+});
 
 function Book(newTitle, newAuthor, newPages, read) {
   this.title = newTitle;
