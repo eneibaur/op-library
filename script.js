@@ -15,7 +15,8 @@ addButton.addEventListener('click', () => {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
-  console.log(formData);
+  const bookObject = Object.fromEntries(formData);
+  myLibrary.push(bookObject);
   makeBookDisplay();
 });
 
