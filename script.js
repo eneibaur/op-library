@@ -54,10 +54,6 @@ function makeBookDisplay() {
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(readToggle);
-    readToggle.addEventListener('click', () => {
-      const arrayPosition = (readToggle.parentElement.id);
-      console.log(arrayPosition);
-    });
     del.classList.add('remove-row');
     removeButton.classList.add('remove');
     removeButton.addEventListener('click', (e) => {
@@ -79,6 +75,20 @@ function makeBookDisplay() {
       readToggle.innerText = 'UNREAD';
       readToggle.classList.add('off');
     }
+    readToggle.addEventListener('click', () => {
+      const arrayPosition = (readToggle.parentElement.id);
+      if (readToggle.innerText == 'READ') {
+        readToggle.classList.replace('on', 'off');
+        readToggle.innerText = 'UNREAD';
+        myLibrary[arrayPosition].read = 'unread';
+        console.log(myLibrary[arrayPosition]);
+      } else {
+        readToggle.classList.replace('off', 'on');
+        readToggle.innerText = 'READ';
+        myLibrary[arrayPosition].read = 'read';
+        console.log(myLibrary[arrayPosition]);
+      }
+    });
   }
 }
 
