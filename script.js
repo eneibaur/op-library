@@ -105,12 +105,10 @@ function modifyRead(num, button) {
     button.classList.replace('on', 'off');
     button.innerText = 'UNREAD';
     myLibrary[num].read = 'unread';
-    console.log(myLibrary[num].read);
   } else {
     button.classList.replace('off', 'on');
     button.innerText = 'READ';
     myLibrary[num].read = 'read';
-    console.log(myLibrary[num].read);
   }
 }
 
