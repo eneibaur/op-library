@@ -75,12 +75,18 @@ function hideForm() {
   form.classList.add('hidden');
 }
 
-function deleteBook() {
+function deleteBook(num) {
 
 }
 
-function toggleRead() {
-
+function toggleRead(num) {
+  if (readToggle.innerText == 'read') {
+    readToggle.classList.replace('on', 'off');
+    myLibrary[num].read = 'unread';
+  } else {
+    readToggle.classList.replace('off', 'on');
+    myLibrary[num].read = 'read';
+  }
 }
 
 // function Book(newTitle, newAuthor, newPages, read) {
