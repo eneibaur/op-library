@@ -77,17 +77,18 @@ function makeBookDisplay() {
     }
     readToggle.addEventListener('click', () => {
       const arrayPosition = (readToggle.parentElement.id);
-      if (readToggle.innerText == 'READ') {
-        readToggle.classList.replace('on', 'off');
-        readToggle.innerText = 'UNREAD';
-        myLibrary[arrayPosition].read = 'unread';
-        console.log(myLibrary[arrayPosition]);
-      } else {
-        readToggle.classList.replace('off', 'on');
-        readToggle.innerText = 'READ';
-        myLibrary[arrayPosition].read = 'read';
-        console.log(myLibrary[arrayPosition]);
-      }
+      modifyRead(arrayPosition, readToggle);
+      // if (readToggle.innerText == 'READ') {
+      //   readToggle.classList.replace('on', 'off');
+      //   readToggle.innerText = 'UNREAD';
+      //   myLibrary[arrayPosition].read = 'unread';
+      //   console.log(myLibrary[arrayPosition]);
+      // } else {
+      //   readToggle.classList.replace('off', 'on');
+      //   readToggle.innerText = 'READ';
+      //   myLibrary[arrayPosition].read = 'read';
+      //   console.log(myLibrary[arrayPosition]);
+      // }
     });
   }
 }
@@ -109,13 +110,17 @@ function deleteBook() {
   myLibrary.splice(num, num);
 }
 
-function toggleRead(num) {
-  if (readToggle.innerText == 'read') {
-    readToggle.classList.replace('on', 'off');
+function modifyRead(num, button) {
+  if (button.innerText == 'READ') {
+    button.classList.replace('on', 'off');
+    button.innerText = 'UNREAD';
     myLibrary[num].read = 'unread';
+    console.log(myLibrary[num].read);
   } else {
-    readToggle.classList.replace('off', 'on');
+    button.classList.replace('off', 'on');
+    button.innerText = 'READ';
     myLibrary[num].read = 'read';
+    console.log(myLibrary[num].read);
   }
 }
 
