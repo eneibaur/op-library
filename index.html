@@ -11,7 +11,7 @@
 <body>
     <div class="form-background disabled" >
         <div class="form hidden">
-            <form action="" method="get" class="hidden" id="form">
+            <form method="post" class="hidden" id="form">
                 <p>
                     <label for="title">Title:</label>
                     <input type="text" name="title" id="title" required>
@@ -27,11 +27,11 @@
                 <fieldset>
                     <legend>Read?</legend>
                     <label for="unread">
-                        <input type="radio" id="unread" name="read" required checked>
+                        <input type="radio" id="unread" value="unread" name="read" required checked>
                         No...
                     </label>
                     <label for="read">
-                        <input type="radio" id="read" name="read">
+                        <input type="radio" id="read" value="read" name="read">
                         Yes!
                     </label>
                 </fieldset>

@@ -25,21 +25,6 @@ submit.addEventListener('click', () => {
   hideForm();
 });
 
-function Book(newTitle, newAuthor, newPages, read) {
-  this.title = newTitle;
-  this.author = newAuthor;
-  this.pages = newPages;
-  this.read = read;
-}
-
-myLibrary.push(new Book('nothing', 'nothing', 222, true));
-console.log(myLibrary);
-
-Book.prototype.bookInfo = function () {
-  const string = `${this.title} by ${this.author}, ${this.pages} pages`;
-  return string;
-};
-
 function makeBookDisplay() {
   for (let i = myLibrary.length - 1; i <= (myLibrary.length - 1); i++) {
     const card = document.createElement('div');
@@ -67,7 +52,7 @@ function makeBookDisplay() {
     title.innerText = myLibrary[i].title;
     author.innerText = myLibrary[i].author;
     pages.innerText = myLibrary[i].pages;
-    if (myLibrary[i].read) {
+    if (myLibrary[i].read == 'read') {
       readToggle.innerText = 'READ';
       readToggle.classList.add('on');
     } else {
@@ -88,6 +73,18 @@ function hideForm() {
   divForm.classList.add('hidden');
   form.classList.add('hidden');
 }
+
+// function Book(newTitle, newAuthor, newPages, read) {
+//   this.title = newTitle;
+//   this.author = newAuthor;
+//   this.pages = newPages;
+//   this.read = read;
+// }
+
+// Book.prototype.bookInfo = function () {
+//   const string = `${this.title} by ${this.author}, ${this.pages} pages`;
+//   return string;
+// };
 
 // Fix read/unread toggle on cards
 // make way to tag cards for delete button
