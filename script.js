@@ -36,6 +36,7 @@ function makeBookDisplay() {
     const readToggle = document.createElement('button');
     container.appendChild(card);
     card.classList.add('card', 'book');
+    card.setAttribute('id', (myLibrary.length - 1));
     card.appendChild(del);
     del.appendChild(removeButton);
     card.appendChild(title);
@@ -72,6 +73,14 @@ function hideForm() {
   formBackground.classList.replace('enabled', 'disabled');
   divForm.classList.add('hidden');
   form.classList.add('hidden');
+}
+
+function deleteBook() {
+
+}
+
+function toggleRead() {
+
 }
 
 // function Book(newTitle, newAuthor, newPages, read) {
