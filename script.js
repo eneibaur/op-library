@@ -1,6 +1,4 @@
 const container = document.querySelector('.body');
-const readButtons = document.querySelectorAll('.read-toggle');
-const removeButtons = document.querySelectorAll('.remove');
 const addButton = document.querySelector('.add-book');
 const formBackground = document.querySelector('.form-background');
 const divForm = document.querySelector('.form');
@@ -11,6 +9,19 @@ const myLibrary = [];
 addButton.addEventListener('click', () => {
   displayForm();
 });
+
+// readButtons.forEach((button) => {
+//   button.addEventListener('click', () => {
+//     const classList = this.className.split('');
+//     console.log('hello!');
+//   });
+// });
+
+// removeButtons.forEach((button) => {
+//   button.addEventListener('click', () => {
+//     console.log('hello!');
+//   });
+// });
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -35,21 +46,29 @@ function makeBookDisplay() {
     const pages = document.createElement('p');
     const readToggle = document.createElement('button');
     container.appendChild(card);
-    card.classList.add('card', 'book', (myLibrary.length - 1));
+    card.classList.add('card', 'book');
+    card.setAttribute('id', (myLibrary.length - 1));
     card.appendChild(del);
     del.appendChild(removeButton);
-    removeButton.classList.add((myLibrary.length - 1));
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(readToggle);
+    readToggle.addEventListener('click', () => {
+      const arrayPosition = (readToggle.parentElement.id);
+      console.log(arrayPosition);
+    });
     del.classList.add('remove-row');
     removeButton.classList.add('remove');
+    removeButton.addEventListener('click', (e) => {
+      const arrayPosition = (readToggle.parentElement.id);
+      console.log(arrayPosition);
+    });
     removeButton.innerText = 'X';
     title.classList.add('info', 'title');
     author.classList.add('info', 'author');
     pages.classList.add('info', 'pages');
-    readToggle.classList.add('read-toggle', (myLibrary.length - 1));
+    readToggle.classList.add('read-toggle');
     title.innerText = myLibrary[i].title;
     author.innerText = myLibrary[i].author;
     pages.innerText = myLibrary[i].pages;
@@ -75,7 +94,7 @@ function hideForm() {
   form.classList.add('hidden');
 }
 
-function deleteBook(num) {
+function deleteBook() {
   card.remove();
   myLibrary.splice(num, num);
 }
