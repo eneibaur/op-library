@@ -35,10 +35,10 @@ function makeBookDisplay() {
     const pages = document.createElement('p');
     const readToggle = document.createElement('button');
     container.appendChild(card);
-    card.classList.add('card', 'book');
-    card.setAttribute('id', (myLibrary.length - 1));
+    card.classList.add('card', 'book', (myLibrary.length - 1));
     card.appendChild(del);
     del.appendChild(removeButton);
+    removeButton.classList.add((myLibrary.length - 1));
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
@@ -49,7 +49,7 @@ function makeBookDisplay() {
     title.classList.add('info', 'title');
     author.classList.add('info', 'author');
     pages.classList.add('info', 'pages');
-    readToggle.classList.add('read-toggle');
+    readToggle.classList.add('read-toggle', (myLibrary.length - 1));
     title.innerText = myLibrary[i].title;
     author.innerText = myLibrary[i].author;
     pages.innerText = myLibrary[i].pages;
