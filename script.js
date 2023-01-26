@@ -76,7 +76,8 @@ function hideForm() {
 }
 
 function deleteBook(num) {
-
+  card.remove();
+  myLibrary.splice(num, num);
 }
 
 function toggleRead(num) {
