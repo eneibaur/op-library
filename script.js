@@ -23,7 +23,7 @@ function deleteBook(num) {
     myLibrary.length = 0;
     console.table(myLibrary);
   } else {
-    myLibrary.splice(num, num);
+    myLibrary.splice(num, 1);
     console.table(myLibrary);
   }
 }
