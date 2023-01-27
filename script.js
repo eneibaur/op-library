@@ -29,12 +29,12 @@ function deleteBook(num) {
 
 function updateDisplay() {
   const currentDisplay = document.querySelector('.body');
-  do {
+  while (currentDisplay.childNodes.length > 2) {
     currentDisplay.removeChild(currentDisplay.lastChild);
-  } while (currentDisplay.childNodes.length > 2);
-  for (let i = 0; i < myLibrary.length; i++) {
-    makeNewBook(i);
   }
+  // for (let i = 0; i < myLibrary.length; i++) {
+  //   makeNewBook(i);
+  // }
 }
 
 function modifyRead(num, button) {
