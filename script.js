@@ -6,6 +6,45 @@ const form = document.querySelector('form');
 const submit = document.querySelector('.submit');
 const myLibrary = [];
 
+function displayForm() {
+  formBackground.classList.replace('disabled', 'enabled');
+  divForm.classList.remove('hidden');
+  form.classList.remove('hidden');
+}
+
+function hideForm() {
+  formBackground.classList.replace('enabled', 'disabled');
+  divForm.classList.add('hidden');
+  form.classList.add('hidden');
+}
+
+function deleteBook(num) {
+  myLibrary.splice(num, num);
+}
+
+function updateDisplay() {
+  const currentDisplay = document.querySelector('.body');
+  do {
+    currentDisplay.removeChild(currentDisplay.lastChild);
+  } while (currentDisplay.childNodes.length > 2);
+  for (let i = 0; i < myLibrary.length; i++) {
+    makeNewBook();
+  }
+  console.table(myLibrary);
+}
+
+function modifyRead(num, button) {
+  if (button.innerText === 'READ') {
+    button.classList.replace('on', 'off');
+    button.innerText = 'UNREAD';
+    myLibrary[num].read = 'unread';
+  } else {
+    button.classList.replace('off', 'on');
+    button.innerText = 'READ';
+    myLibrary[num].read = 'read';
+  }
+}
+
 addButton.addEventListener('click', () => {
   displayForm();
 });
@@ -15,7 +54,6 @@ form.addEventListener('submit', (e) => {
   const formData = new FormData(e.target);
   const bookObject = Object.fromEntries(formData);
   myLibrary.push(bookObject);
-  console.table(myLibrary);
   makeNewBook();
 });
 
@@ -45,7 +83,8 @@ function makeNewBook() {
     removeButton.classList.add('remove');
     removeButton.addEventListener('click', () => {
       const arrayPosition = (readToggle.parentElement.id);
-      deleteBook(arrayPosition, card);
+      deleteBook(arrayPosition);
+      updateDisplay();
     });
     removeButton.innerText = 'X';
     title.classList.add('info', 'title');
@@ -66,45 +105,5 @@ function makeNewBook() {
       const arrayPosition = (readToggle.parentElement.id);
       modifyRead(arrayPosition, readToggle);
     });
-  }
-}
-
-function displayForm() {
-  formBackground.classList.replace('disabled', 'enabled');
-  divForm.classList.remove('hidden');
-  form.classList.remove('hidden');
-}
-
-function hideForm() {
-  formBackground.classList.replace('enabled', 'disabled');
-  divForm.classList.add('hidden');
-  form.classList.add('hidden');
-}
-
-function deleteBook(num, card) {
-  myLibrary.splice(num, num);
-  updateDisplay();
-  console.table(myLibrary);
-}
-
-function modifyRead(num, button) {
-  if (button.innerText == 'READ') {
-    button.classList.replace('on', 'off');
-    button.innerText = 'UNREAD';
-    myLibrary[num].read = 'unread';
-  } else {
-    button.classList.replace('off', 'on');
-    button.innerText = 'READ';
-    myLibrary[num].read = 'read';
-  }
-}
-
-function updateDisplay() {
-  const currentDisplay = document.querySelector('.body');
-  while (currentDisplay.childNodes.length > 1) {
-    currentDisplay.removeChild(currentDisplay.lastElementChild);
-  }
-  for (let i = 0; i < myLibrary.length; i++) {
-    makeNewBook();
   }
 }
