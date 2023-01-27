@@ -10,19 +10,6 @@ addButton.addEventListener('click', () => {
   displayForm();
 });
 
-// readButtons.forEach((button) => {
-//   button.addEventListener('click', () => {
-//     const classList = this.className.split('');
-//     console.log('hello!');
-//   });
-// });
-
-// removeButtons.forEach((button) => {
-//   button.addEventListener('click', () => {
-//     console.log('hello!');
-//   });
-// });
-
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
@@ -58,7 +45,6 @@ function makeBookDisplay() {
     removeButton.classList.add('remove');
     removeButton.addEventListener('click', () => {
       const arrayPosition = (readToggle.parentElement.id);
-      console.log(arrayPosition);
       deleteBook(arrayPosition, card);
     });
     removeButton.innerText = 'X';
@@ -98,6 +84,7 @@ function hideForm() {
 function deleteBook(num, card) {
   card.remove();
   myLibrary.splice(num, num);
+  console.table(myLibrary);
 }
 
 function modifyRead(num, button) {
@@ -111,18 +98,3 @@ function modifyRead(num, button) {
     myLibrary[num].read = 'read';
   }
 }
-
-// function Book(newTitle, newAuthor, newPages, read) {
-//   this.title = newTitle;
-//   this.author = newAuthor;
-//   this.pages = newPages;
-//   this.read = read;
-// }
-
-// Book.prototype.bookInfo = function () {
-//   const string = `${this.title} by ${this.author}, ${this.pages} pages`;
-//   return string;
-// };
-
-// Fix read/unread toggle on cards
-// make way to tag cards for delete button
