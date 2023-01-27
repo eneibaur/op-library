@@ -19,7 +19,12 @@ function hideForm() {
 }
 
 function deleteBook(num) {
-  myLibrary.splice(num, num);
+  if (myLibrary.length === 1) {
+    myLibrary.length = 0;
+  } else {
+    myLibrary.splice(num, num);
+  }
+  console.log(myLibrary);
 }
 
 function updateDisplay() {
@@ -28,9 +33,8 @@ function updateDisplay() {
     currentDisplay.removeChild(currentDisplay.lastChild);
   } while (currentDisplay.childNodes.length > 2);
   for (let i = 0; i < myLibrary.length; i++) {
-    makeNewBook();
+    makeNewBook(i);
   }
-  console.table(myLibrary);
 }
 
 function modifyRead(num, button) {
@@ -45,24 +49,8 @@ function modifyRead(num, button) {
   }
 }
 
-addButton.addEventListener('click', () => {
-  displayForm();
-});
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-  const bookObject = Object.fromEntries(formData);
-  myLibrary.push(bookObject);
-  makeNewBook();
-});
-
-submit.addEventListener('click', () => {
-  hideForm();
-});
-
-function makeNewBook() {
-  for (let i = myLibrary.length - 1; i <= (myLibrary.length - 1); i++) {
+function makeNewBook(num) {
+  for (let i = num; i <= (myLibrary.length - 1); i++) {
     const card = document.createElement('div');
     const del = document.createElement('div');
     const removeButton = document.createElement('button');
@@ -72,7 +60,7 @@ function makeNewBook() {
     const readToggle = document.createElement('button');
     container.appendChild(card);
     card.classList.add('card', 'book');
-    card.setAttribute('id', (myLibrary.length - 1));
+    card.setAttribute('id', num);
     card.appendChild(del);
     del.appendChild(removeButton);
     card.appendChild(title);
@@ -105,5 +93,22 @@ function makeNewBook() {
       const arrayPosition = (readToggle.parentElement.id);
       modifyRead(arrayPosition, readToggle);
     });
+    console.table(myLibrary);
   }
 }
+
+addButton.addEventListener('click', () => {
+  displayForm();
+});
+
+submit.addEventListener('click', () => {
+  hideForm();
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const bookObject = Object.fromEntries(formData);
+  myLibrary.push(bookObject);
+  makeNewBook((myLibrary.length - 1));
+});
