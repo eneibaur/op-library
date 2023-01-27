@@ -15,7 +15,7 @@ form.addEventListener('submit', (e) => {
   const formData = new FormData(e.target);
   const bookObject = Object.fromEntries(formData);
   myLibrary.push(bookObject);
-  console.log(myLibrary);
+  console.table(myLibrary);
   makeBookDisplay();
 });
 
