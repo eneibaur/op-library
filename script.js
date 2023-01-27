@@ -16,14 +16,14 @@ form.addEventListener('submit', (e) => {
   const bookObject = Object.fromEntries(formData);
   myLibrary.push(bookObject);
   console.table(myLibrary);
-  makeBookDisplay();
+  makeNewBook();
 });
 
 submit.addEventListener('click', () => {
   hideForm();
 });
 
-function makeBookDisplay() {
+function makeNewBook() {
   for (let i = myLibrary.length - 1; i <= (myLibrary.length - 1); i++) {
     const card = document.createElement('div');
     const del = document.createElement('div');
@@ -82,8 +82,8 @@ function hideForm() {
 }
 
 function deleteBook(num, card) {
-  card.remove();
   myLibrary.splice(num, num);
+  updateDisplay();
   console.table(myLibrary);
 }
 
@@ -96,5 +96,15 @@ function modifyRead(num, button) {
     button.classList.replace('off', 'on');
     button.innerText = 'READ';
     myLibrary[num].read = 'read';
+  }
+}
+
+function updateDisplay() {
+  const currentDisplay = document.querySelector('.body');
+  while (currentDisplay.childNodes.length > 1) {
+    currentDisplay.removeChild(currentDisplay.lastElementChild);
+  }
+  for (let i = 0; i < myLibrary.length; i++) {
+    makeNewBook();
   }
 }
